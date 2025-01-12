@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "4eaaffc6-b4c1-44a3-8151-0ccf1d2c0d80",
+		"name": "shoppingcart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23707806"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/ProductService/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ProductService",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get limited products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/ProductService/products/limited?limit=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ProductService",
+								"products",
+								"limited"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/ProductService/products/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ProductService",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/ProductService/products/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ProductService",
+								"products",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/ProductService/products/category/jewelery",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ProductService",
+								"products",
+								"category",
+								"jewelery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "save order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"orderDetails\": [\r\n        {\r\n            \"productId\":1,\r\n            \"quantity\":10,\r\n            \"unitPrice\":109.95\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/OrderService/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"OrderService",
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/OrderService/api/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"OrderService",
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get orders by customerId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/OrderService/api/orders/customer/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"OrderService",
+								"api",
+								"orders",
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "save payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": 2,\r\n    \"amount\": 100,\r\n    \"paymentMethod\": \"Card\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/PaymentService/api/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"PaymentService",
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get payments by status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8083/PaymentService/api/payments/status/Successful",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"PaymentService",
+								"api",
+								"payments",
+								"status",
+								"Successful"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
